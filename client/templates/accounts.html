@@ -1,0 +1,9 @@
+<template name="listaccount">
+    <li><input type="text" class="input-sm accountname form-control" value="" placeholder="Account Name"/></li>
+    {{#each allaccounts}}
+        {{>account}}
+    {{/each}}
+</template>
+<template name="account">
+    <li class="itemaccount"><a class="btn btn-default" href="#">{{name}}<i class="fa fa-trash pull-right rmaccount"></i></a></li>
+</template>

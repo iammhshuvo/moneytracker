@@ -1,0 +1,48 @@
+<template name="accountdetails">
+
+        {{#if accountInfo}}
+           <div class="row head">
+               <div class="col-md-8">
+                   <header class="header">
+                       <div class="accountinfo">{{accountInfo.name}}
+                           <small>account</small>
+                       </div>
+                   </header>
+               </div>
+               <div class="col-md-2 col-lg-2">
+                   <input type="button" class="btn btn-success newtransaction" value="New Transaction"/>
+               </div>
+           </div>
+            <div class="row">
+                <div class="col-md-10 col-lg-10">
+                    <table class="table table-hovered table-striped">
+                        <thead>
+                        <tr>
+                            <th>#serial</th>
+                            <th>Type</th>
+                            <th>Purpose</th>
+                            <th>Amount</th>
+                            <th>Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {{#each transactions}}
+                            {{>transactionitem}}
+                        {{/each}}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            {{else}}
+            <h1>Please Select An Acount</h1>
+        {{/if}}
+</template>
+<template name="transactionitem">
+    <tr class="dataitem">
+        <td class="attime">{{attime}}</td>
+        <td class="ttype">{{type}}</td>
+        <td class="purpose">{{purpose}}</td>
+        <td class="amount">{{amount}}</td>
+        <td class=""><span class="fa fa-remove rmtransaction"></span>&nbsp;&nbsp;<span class="fa fa-edit edittransaction"></span></td>
+    </tr>
+</template>

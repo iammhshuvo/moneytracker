@@ -1,0 +1,79 @@
+<template name="newtransaction">
+    {{#if edititemtrue}}
+    <div class="trns-outside {{showhide}}">
+        <div class="trns-inside">
+            <div class="trns-header">
+                <div class="trns-head-text">New Transaction</div>
+                <div class="trns-cross">&times;</div>
+            </div>
+            <div class="trns-form">
+                <form class="newtrns">
+                    <div class="form-group">
+                        <label for="">Date</label>
+                        <input type="date" class="form-control datepicker"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Type</label>
+                        <select name="ttype" id="" class="ttype form-control">
+                            <option value="withdrawal">Withdrawal</option>
+                            <option value="deposite">Deposite</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Purpose</label>
+                        <input type="text" class="form-control purpose" value="{{edititem.purpose}}"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Amount</label>
+                        <input type="text" class="form-control amount" value="{{edititem.amount}}"/>
+                    </div>
+                    <button type="submit" class="btn btn-success addtransaction">Add Transaction</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    {{else}}
+        <div class="trns-outside {{showhide}}">
+            <div class="trns-inside">
+                <div class="trns-header">
+                    <div class="trns-head-text">New Transaction</div>
+                    <div class="trns-cross">&times;</div>
+                </div>
+                <div class="trns-form">
+                    <form class="newtrns">
+                        <div class="form-group">
+                            <label for="">Date</label>
+                            <input type="date" class="form-control datepicker"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="">Type</label>
+                            <select name="ttype" id="" class="ttype form-control">
+                                <option value="withdrawal">Withdrawal</option>
+                                <option value="deposite">Deposite</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="">Purpose</label>
+                            <input type="text" class="form-control purpose"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="">Amount</label>
+                            <input type="text" class="form-control amount"/>
+                        </div>
+                        <button type="submit" class="btn btn-success addtransaction">Add Transaction</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    {{/if}}
+    <script>
+        Date.prototype.toDateInputValue = (function() {
+            var local = new Date(this);
+            local.setMinutes(this.getMinutes() - this.getTimezoneOffset());
+            return local.toJSON().slice(0,10);
+        });
+        $(document).ready( function() {
+            $('.datepicker').val(new Date().toDateInputValue());
+        });
+    </script>
+</template>

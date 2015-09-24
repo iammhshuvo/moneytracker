@@ -1,0 +1,78 @@
+body {
+    background: #555;
+    color: #808080;
+}
+.fa-trash:hover{
+    color: red;
+}
+.header {
+    color: #adadad;
+}
+.header small {
+    color: #fff;
+}
+.accountinfo {
+    font-size: large;
+    float: left;
+    padding-right: 5px;
+}
+.trns-outside {
+    position: fixed;
+    top: 0px;
+    left : 0px;
+    width: 100%;
+    height: 100%;
+    background: #000000;
+    //background: rgba(0,0,0,1);
+    //background: rgba(0,0,0,.6);
+    background: rgba(0,0,0,.5);
+}
+.trns-inside {
+    border-radius: 3px 3px;
+    width: 50%;
+    margin-top: 10%;
+    margin-left: 25%;
+    background: #ffffff;
+    z-index: -1;
+}
+.trns-header {
+    background: #8f8f8f;
+    color: #fff;
+    font-size: 12pt;
+    border-bottom: 1px solid #000000;
+}
+.trns-head-text {
+    padding: 5px;
+    font-weight: bold;
+}
+.trns-cross {
+    position: fixed;
+    top: 12%;
+    left: 73%;
+    float: right;
+    padding: 5px;
+    cursor: pointer;
+}
+.trns-form {
+    padding: 25px;
+}
+.trns-hide {
+    display: none;
+}
+.trns-show {
+    display: block;
+}
+.head {
+    padding: 5px;
+    border-bottom: 1px solid #000000;
+}
+.rmtransaction {
+    cursor: pointer;
+
+}
+.rmtransaction:hover {
+    color: #990000;
+}
+.edittransaction {
+    cursor: pointer;
+}

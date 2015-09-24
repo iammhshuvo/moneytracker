@@ -1,0 +1,21 @@
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar navbar-default">
+            <div class="navbar-brand">MoneyTracker</div>
+        </nav>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
+                <ul class="nav nav-stacked">
+                       {{>listaccount}}
+                </ul>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10">
+                {{>accountdetails}}
+            </div>
+        </div>
+    </div>
+    {{>newtransaction}}
+</body>
