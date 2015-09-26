@@ -27,7 +27,7 @@ Template.account.events({
         {
             Session.set("balance",data);
         });
-        console.log("After ALll: "+Session.get("balance"));
+        //console.log("After ALll: "+Session.get("balance"));
     },
     "mousemove .rmaccount":function(event,template)
     {

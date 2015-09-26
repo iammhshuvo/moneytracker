@@ -5,7 +5,7 @@ Meteor.methods({
     "updateWithdrawals": function(account)
     {
         DBTransactions.aggregate([ {$match: {"type":"withdrawal"}}, {$group: {"_id":"$toaccount",totalAmount: {$sum:"$amount"}}},{$out: "withdrawals"}]);
-        var data = DBWithdrawals.find({});
+        var data = DBWithdrawals.find({_id:account});
 
         console.log(data.count());
         if(data.count() === 0)
