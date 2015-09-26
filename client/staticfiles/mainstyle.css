@@ -1,5 +1,5 @@
 body {
-    background: #555;
+    background: #fff;
     color: #808080;
 }
 .fa-trash:hover{
@@ -28,28 +28,31 @@ body {
     background: rgba(0,0,0,.5);
 }
 .trns-inside {
+    border: 1px solid #888;
+    //box-shadow: 1px 1px 20px #ffffff;
     border-radius: 3px 3px;
     width: 50%;
     margin-top: 10%;
     margin-left: 25%;
-    background: #ffffff;
+    background: #555;
     z-index: -1;
 }
 .trns-header {
-    background: #8f8f8f;
+    background: #000000;
     color: #fff;
     font-size: 12pt;
-    border-bottom: 1px solid #000000;
+    border-bottom: 1px groove #fff;
+    background: -webkit-linear-gradient(top,#000000,#555);
+    background: -o-linear-gradient(#000000,#555);
+    background: -moz-linear-gradient(#000000,#555);
+    background: linear-gradient(bottom,#000,#555555);
+    //box-sizing: border-box;
 }
 .trns-head-text {
     padding: 5px;
     font-weight: bold;
 }
 .trns-cross {
-    position: fixed;
-    top: 12%;
-    left: 73%;
-    float: right;
     padding: 5px;
     cursor: pointer;
 }
@@ -66,6 +69,12 @@ body {
     padding: 5px;
     border-bottom: 1px solid #000000;
 }
+.rmaccount:hover {
+    color: red;
+}
+.rmaccount:hover + .btn + .width{
+    text-decoration: line-through;
+}
 .rmtransaction {
     cursor: pointer;
 
@@ -75,4 +84,51 @@ body {
 }
 .edittransaction {
     cursor: pointer;
+}
+.dataitem {
+    cursor: pointer;
+}
+.table-hover > tbody > tr:hover {
+    background-color: #D2D2D2;
+}
+.width {
+    width:100%;
+    box-sizing: border-box;
+}
+.jumbotronself {
+    background: #808080;
+    border-radius: 7px 7px;
+}
+.jumbotronself h1 {
+    color: #ffffff;
+}
+.accountname {
+    //margin-left: 25%;
+    background: #808080;
+    width: 50%;
+    color: #000 !important;
+    //height: 50px;
+    font-size: 12pt;
+    margin-bottom: 25px;
+    padding-top: 10px;
+    padding-left: 0px;
+    border: 0px !important;
+    border-bottom: 1px groove #000000 !important;
+
+}
+.fieldaccname {
+   width: 50%;
+    margin-left: 25%;
+}
+.accountname:focus {
+    box-shadow: none;
+}
+.cross-through {
+
+}
+.invalidamount {
+    color: #ff0000 !important;
+}
+.valid {
+    color: #00ff00 !important;
 }

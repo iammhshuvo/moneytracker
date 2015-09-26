@@ -1,15 +1,17 @@
 <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 </head>
-<body>
+<body id="myapp">
     <div class="container">
-        <nav class="navbar navbar-default">
-            <div class="navbar-brand">MoneyTracker</div>
-        </nav>
+        <div class="row">
+            <div class="col-lg-12">
+                {{>newaccount}}
+            </div>
+        </div>
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
-                <ul class="nav nav-stacked">
-                       {{>listaccount}}
+                <ul class="nav nav-stacked" style="margin-top: 5px;">
+                    {{>listaccount}}
                 </ul>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10">
@@ -19,3 +21,40 @@
     </div>
     {{>newtransaction}}
 </body>
+
+<template name="newaccount">
+    <!---
+    <nav class="navbar navbar-inverse">
+        <div class="navbar-brand apptitle">MoneyTracker</div>
+        <div class="container">
+            <ul class="nav nav-pills">
+                <li><a>
+                    <input type="text" class="input-sm accountname form-control" value="" placeholder="Select account or type a name"/>
+                </a></li>
+            </ul>
+        </div>
+    </nav>
+    -->
+
+       <div class="row jumbotronself">
+           <div class="col-lg-12">
+               <h1 class="text-center">MoneyTracker</h1>
+           </div>
+           <div class="text-center fieldaccname">
+               <input type="text" class="form-control accountname" placeholder="Select account or create ">
+           </div>
+       </div>
+
+    <!--
+    <div class="jubbotron" style="background: #555;">
+        <div class="navbar-brand apptitle">MoneyTracker</div>
+            <div class="row">
+                <div class="col-lg-3"></div>
+                <div class="col-lg-6">
+                    <input type="text" class="input-sm accountname form-control" value="" placeholder="Select account or type a name"/>
+                </div>
+                <div class="col-lg-3"></div>
+            </div>
+        </div>
+    -->
+</template>

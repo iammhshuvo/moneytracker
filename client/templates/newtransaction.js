@@ -33,16 +33,13 @@ Template.newtransaction.events({
             attime: new Date(date),
             type: ttype,
             purpose: purpose,
-            amount: amount
+            amount: Number(amount)
         }
         //Meteor.methods("addTransactions",transaction);
-        if(Session.get("edititemtrue"))
-        {
-            DBTransactions.update();
-        }
-        else {
-            DBTransactions.insert(transaction);
-        }
+
+        DBTransactions.insert(transaction);
+
+        Meteor.call("getBalance",Session.get("acc_id"));
 
         target.find(".datepicker").value = date;
         target.find(".ttype").value = "";
@@ -50,6 +47,43 @@ Template.newtransaction.events({
         target.find(".amount").value = "";
 
         Session.set("showhide",false);
+        Meteor.call("getBalanceAsync",Session.get("acc_id"),function(err,data)
+        {
+            Session.set("balance",data);
+        });
+    },
+    "submit .formedittransaction": function(event, target){
+        event.preventDefault();
+
+        var type = target.find(".edittype").value;
+        var purpose = target.find(".editpurpose").value;
+        var amount = target.find(".editamount").value;
+
+        var edititem = Session.get("item");
+
+        DBTransactions.update({_id:edititem._id},
+            {$set:{
+                type: type,
+                purpose: purpose,
+                amount: Number(amount)
+            }},
+            { upsert: false});
+
+        Meteor.call("getBalance",Session.get("acc_id"));
+
+        target.find(".edittype").value = "";
+        target.find(".editpurpose").value = "";
+        target.find(".editamount").value = "";
+
+        Session.set("showhide",false);
+        Session.set("item",{});
+
+        Meteor.call("getBalanceAsync",Session.get("acc_id"),function(err,data)
+        {
+            Session.set("balance",data);
+        });
+
+
     },
     "click .trns-outside":function(event,target)
     {

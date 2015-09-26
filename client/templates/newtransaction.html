@@ -3,31 +3,37 @@
     <div class="trns-outside {{showhide}}">
         <div class="trns-inside">
             <div class="trns-header">
-                <div class="trns-head-text">New Transaction</div>
-                <div class="trns-cross">&times;</div>
+                <div class="row">
+                    <div class="col-xs-11 col-sm-11 col-md-11 col-lg-11">
+                        <div class="trns-head-text">Edit Transaction</div>
+                    </div>
+                    <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+                        <div class="trns-cross pull-right">&times;</div>
+                    </div>
+                </div>
             </div>
             <div class="trns-form">
-                <form class="newtrns">
+                <form class="formedittransaction">
                     <div class="form-group">
                         <label for="">Date</label>
-                        <input type="date" class="form-control datepicker"/>
+                        <input type="date" class="form-control editdatepicker"/>
                     </div>
                     <div class="form-group">
                         <label for="">Type</label>
-                        <select name="ttype" id="" class="ttype form-control">
+                        <select name="ttype" id="" class="edittype form-control">
                             <option value="withdrawal">Withdrawal</option>
                             <option value="deposite">Deposite</option>
                         </select>
                     </div>
                     <div class="form-group">
                         <label for="">Purpose</label>
-                        <input type="text" class="form-control purpose" value="{{edititem.purpose}}"/>
+                        <input type="text" class="form-control editpurpose" value="{{edititem.purpose}}"/>
                     </div>
                     <div class="form-group">
                         <label for="">Amount</label>
-                        <input type="text" class="form-control amount" value="{{edititem.amount}}"/>
+                        <input type="text" class="form-control editamount" value="{{edititem.amount}}"/>
                     </div>
-                    <button type="submit" class="btn btn-success addtransaction">Add Transaction</button>
+                    <button type="submit" class="btn btn-success btnedittransaction"><i class="fa fa-edit"></i></button>
                 </form>
             </div>
         </div>
@@ -36,8 +42,14 @@
         <div class="trns-outside {{showhide}}">
             <div class="trns-inside">
                 <div class="trns-header">
-                    <div class="trns-head-text">New Transaction</div>
-                    <div class="trns-cross">&times;</div>
+                    <div class="row">
+                        <div class="col-xs-11 col-sm-11 col-md-11 col-lg-11">
+                            <div class="trns-head-text">New Transaction</div>
+                        </div>
+                        <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+                            <div class="trns-cross pull-right">&times;</div>
+                        </div>
+                    </div>
                 </div>
                 <div class="trns-form">
                     <form class="newtrns">
@@ -72,8 +84,9 @@
             local.setMinutes(this.getMinutes() - this.getTimezoneOffset());
             return local.toJSON().slice(0,10);
         });
-        $(document).ready( function() {
-            $('.datepicker').val(new Date().toDateInputValue());
+        $(".newtransaction").click( function() {
+
+            $('.editdatepicker').val(new Date().toDateInputValue());
         });
     </script>
 </template>
